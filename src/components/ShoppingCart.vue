@@ -26,6 +26,7 @@ export default {
         remove(id) {
             this.$store.commit('removeFromCart', id)
         },
+        
         checkout() {
             alert('use (4242 4242 4242 4242, 04/24, 424) for credit card info')
             let itemsArray = []
