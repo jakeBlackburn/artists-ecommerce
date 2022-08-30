@@ -7,12 +7,16 @@
     <h4 class="subtitle" v-if="!this.isLoading">By {{this.artist_name}}</h4>
     <p class="artwork">{{this.artwork.description}}</p>
     <div class="buttons" v-if="!this.isLoading">
-        <p class="price"><em>{{artwork.auction ? 'auction' : 'fixed price'}}</em></p>
-        <p class="price" v-if="artwork.price">Price: {{artwork.price}}</p>
-        <p class="price" v-if="artwork.highestBid">Highest Bid: {{artwork.highestBid}}</p>
-        <router-link class="link" :to="artist_url">to artist page</router-link>
-        <button v-if="!this.artwork.auction" class="link" @click="purchase()">add to cart</button>
-        <button v-if="this.artwork.auction" class="link" @click="bid()">make a bid</button>
+        <div class="price-container">
+            <p class="price"><em>{{artwork.auction ? 'auction' : 'fixed price'}}</em></p>
+            <p class="price" v-if="artwork.price">Price: {{artwork.price}}</p>
+            <p class="price" v-if="artwork.highestBid">Highest Bid: {{artwork.highestBid}}</p>
+        </div>
+        <div class="links">
+            <router-link class="link" :to="artist_url">to artist page</router-link>
+            <button v-if="!this.artwork.auction" class="link" @click="purchase()">add to cart</button>
+            <button v-if="this.artwork.auction" class="link" @click="bid()">make a bid</button>
+        </div>
     </div>
 </div>
 </div>
@@ -87,13 +91,14 @@ export default {
 
 .artwork-container {
     display: flex;
+    align-items: center;
     padding-bottom: 50px;
 }
 
 img {
     margin: 0 50px;
     height: 500px;
-    max-width: 700px;
+    max-width: 600px;
     object-fit: cover;
     border-radius: 5px;
 }
@@ -116,15 +121,21 @@ img {
     text-align: center;
 }
 
+.price-container {
+    display: flex;
+}
+
 
 .price {
     color: royalblue;
+    margin: 0 10px 20px 20px;
 }
+
+
 
 .buttons {
     display: flex;
-    margin: 0 80px 0 50px;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -133,6 +144,7 @@ img {
     font-family: Raleway;
     font-size: 1.1rem;
     padding: 5px;
+    margin: 0 10px;
     text-decoration: none;
     color: black;
     border: 1px solid black;
@@ -143,5 +155,51 @@ img {
 .link:hover {
     background-color: lavender;
     color: navy;
+}
+
+@media screen and (max-width: 1150px) {
+    img {
+        margin: 0 25px;
+        height: 400px;
+        max-width: 500px;
+    }
+}
+@media screen and (max-width: 950px) {
+    img {
+        margin: 0 20px;
+        height: 370px;
+        max-width: 490px;
+    }
+
+    .title {
+        font-size: 1.7rem;
+    }
+
+    .subtitle {
+        font-size: 0.7rem;
+    }
+
+    .artwork {
+        font-size: 1rem;
+    }
+
+    .price-container {
+        font-size: 0.8rem;
+    }
+
+    .link {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .artwork-container {
+        flex-direction: column;
+    }
+
+    img {
+        max-width: 90%;
+        height: 300px;
+    }
 }
 </style>

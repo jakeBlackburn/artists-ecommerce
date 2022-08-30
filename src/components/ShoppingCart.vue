@@ -65,7 +65,7 @@ export default {
     position: fixed;
     top: 70px;
     right: 10px;
-    width: 300px;
+    width: 350px;
     background-color: aliceblue;
     border: 1px solid black;
     border-radius: 5px;
@@ -127,5 +127,13 @@ button {
     background-color: rgb(250, 226, 229);
     margin: 20px 50px;
     font-family: Noto Sans;
+}
+
+@media screen and (max-width: 400px) {
+    .cart-container {
+        width: 93%;
+    }
+
+    
 }
 </style>

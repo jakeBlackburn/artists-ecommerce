@@ -65,6 +65,7 @@ export default {
     display: flex;
     padding:  0 20px 20px 20px;
     justify-content: space-around;
+    align-items: center;
 }
 
 img {
@@ -88,6 +89,45 @@ img {
 
 p {
     font-size: 1.3rem;
-    padding: 20px;
+    padding: 0 20px 20px 20px;
+    text-align: center;
+    margin: 0;
+}
+
+@media screen and (max-width: 900px) {
+    img {
+        margin-right: 15px;
+        width: 200px;
+        height: 200px;
+    }
+
+    .title {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+
+}
+
+@media screen and (max-width: 530px) {
+    .artist-container {
+        padding: 0 10px 10px 10px;
+    }
+
+    img {
+        display: none;
+        position: absolute;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .title {
+        margin: 0 0 20px 0;
+    }
+
 }
 </style>

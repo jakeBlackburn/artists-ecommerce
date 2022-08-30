@@ -72,6 +72,7 @@ button {
     background-color: rgb(250, 226, 229);
     margin-right: 20px;
     font-family: Noto Sans;
+    font-size: 1rem;
 }
 
 button:hover {
@@ -86,7 +87,7 @@ button:hover {
     }
 
     button {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 }
 
