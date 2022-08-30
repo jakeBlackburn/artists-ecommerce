@@ -1,8 +1,8 @@
 <template>
     <div class="home-container">
-        <p v-if="this.isLoading">loading...</p>
         <Featured /> 
-        <Grid :artworks="this.artworks" :isLoading="this.isLoading"/>
+        <p v-if="this.isLoading" class="loading">loading...</p>
+        <Grid :artworks="this.artworks" v-if="!this.isLoading" />
     </div>
 </template>
 
@@ -40,5 +40,11 @@ export default {
 </script>
 
 <style scoped>
-
+.loading {
+    width: 100%;
+    font-size: 2rem;
+    font-family: Noto Sans;
+    text-align: center;
+    color: navy;
+}
 </style>

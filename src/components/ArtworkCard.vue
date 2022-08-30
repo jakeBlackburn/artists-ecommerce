@@ -30,7 +30,8 @@ export default {
 
 <style scoped>
 .card-container {
-    border: 2px solid rosybrown;
+    border: 1px solid black;
+    border-radius: 3px;
     padding: 30px;
     background-color: wheat;
     display: flex;
@@ -47,7 +48,7 @@ img {
 
 .title {
     font-family: Noto Sans;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     text-align: center;
 }
 
@@ -57,6 +58,12 @@ img {
     padding: 0 10%;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+}
+
+p {
+    margin: 5px 0;
+    text-align: center;
 }
 
 .selling-type {
@@ -66,6 +73,30 @@ img {
 
 .price {
     color: darkmagenta;
+}
+
+
+@media screen and (max-width: 575px) {
+    .card-container {
+        padding: 20px;
+    }
+
+    img {
+        height: 150px;
+    }
+
+    .title {
+        font-size: 0.9rem;
+        margin: 10px 0;
+    }
+
+    .selling-type {
+        font-size: 0.8rem;
+    }
+
+    .price {
+        font-size: 0.7rem;
+    }
 }
 
 

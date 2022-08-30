@@ -65,7 +65,7 @@ export default {
     position: fixed;
     top: 70px;
     right: 10px;
-    width: 350px;
+    width: 300px;
     background-color: aliceblue;
     border: 1px solid black;
     border-radius: 5px;

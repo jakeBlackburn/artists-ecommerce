@@ -3,7 +3,6 @@
         <div class="grid-header">
             <h2>Artworks</h2>
         </div>
-        <p v-if="isLoading">loading...</p>
         <div class="grid">
             <ArtworkCard class="artwork" v-for="artwork in this.artworks" :key="artwork.id" :artwork="artwork" @click="navigate(artwork)" />
         </div>
@@ -18,7 +17,6 @@ import ArtworkCard from './ArtworkCard.vue'
 export default {
     props: {
         artworks: Array,
-        isLoading: Boolean
     },
     components: {
         ArtworkCard
@@ -49,10 +47,27 @@ export default {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 20px;
 }
 
 .artwork {
     cursor: pointer;
+}
+
+@media screen and (max-width: 870px) {
+    .grid {
+        grid-gap: 10px;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-header {
+        font-size: 1.1rem;
+    }
 }
 </style>

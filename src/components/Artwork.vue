@@ -1,10 +1,10 @@
 <template>
 <div class="artwork-container">
-<p v-if="this.isLoading">loading...</p>
+<p v-if="this.isLoading" class="loading">loading...</p>
 <img v-if="!this.isLoading" :src="image_url" :alt="this.artwork.name">
 <div class="content">
     <h1 class="title">{{this.name}}</h1>
-    <h4 class="subtitle">By {{this.artist_name}}</h4>
+    <h4 class="subtitle" v-if="!this.isLoading">By {{this.artist_name}}</h4>
     <p class="artwork">{{this.artwork.description}}</p>
     <div class="buttons" v-if="!this.isLoading">
         <p class="price"><em>{{artwork.auction ? 'auction' : 'fixed price'}}</em></p>
@@ -77,6 +77,14 @@ export default {
 </script>
 
 <style scoped>
+.loading {
+    width: 100%;
+    font-size: 2rem;
+    font-family: Noto Sans;
+    text-align: center;
+    color: navy;
+}
+
 .artwork-container {
     display: flex;
     padding-bottom: 50px;

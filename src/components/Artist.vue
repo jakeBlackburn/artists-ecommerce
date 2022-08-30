@@ -1,14 +1,14 @@
 <template>
 <div>
     <div class="artist-container">
-        <p v-if="this.isLoading">loading...</p>
+        <p v-if="this.isLoading" class="loading">loading...</p>
         <img v-if="!this.isLoading" :src="this.artist_url" :alt="this.artist.name">
         <div class="content">
             <h1 class="title">{{this.name}}</h1>
             <p>{{this.artist.bio}}</p>
         </div>
     </div>
-    <Grid :artworks="this.artworks" :isLoading="this.isLoading" />
+    <Grid :artworks="this.artworks" :isLoading="this.isLoading" v-if="!this.isLoading" />
 </div>
 
 
@@ -53,6 +53,14 @@ export default {
 
 
 <style scoped>
+.loading {
+    width: 100%;
+    font-size: 2rem;
+    font-family: Noto Sans;
+    text-align: center;
+    color: navy;
+}
+
 .artist-container {
     display: flex;
     padding:  0 20px 20px 20px;

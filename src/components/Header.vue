@@ -80,4 +80,14 @@ button:hover {
 
 }
 
+@media screen and (max-width: 520px) {
+    .header-container {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.8rem;
+    }
+}
+
 </style>
