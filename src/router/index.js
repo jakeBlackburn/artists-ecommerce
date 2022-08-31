@@ -18,6 +18,16 @@ const routes = [
     path: '/artwork/:name',
     name: 'artwork',
     component: ArtworkView
+  },
+  {
+    path: '/success',
+    name: 'success',
+    component: SuccessView
+  },
+  {
+    path: '/failure',
+    name: 'failure',
+    component: FailureView
   }
 ]
 
