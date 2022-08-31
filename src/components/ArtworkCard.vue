@@ -20,7 +20,7 @@ export default {
     },
     data() {
         return {
-            image_url: `http://localhost:3000/images/${this.artwork.image}`,
+            image_url: `https://artists-ecommerce.herokuapp.com/images/${this.artwork.image}`,
             name: this.artwork.name.replace(/-/g, " ")
         }
     }

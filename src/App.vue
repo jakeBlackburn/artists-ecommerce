@@ -17,7 +17,7 @@ export default {
     const token = localStorage.token
     if (token) {
       try {
-        const { data } = await axios.get('http://localhost:3000/api/v1/auth', {
+        const { data } = await axios.get('https://artists-ecommerce.herokuapp.com/api/v1/auth', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

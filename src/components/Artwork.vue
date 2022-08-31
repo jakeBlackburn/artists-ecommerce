@@ -44,7 +44,7 @@ export default {
             alert(`${this.name} added to cart!`)
         },
         bid() {
-            let bid = prompt('Enter your bid:', `${this.artwork.highestBid}`)
+            let bid = prompt('Enter your bid:', `${this.artwork.highestBid.replace(/,/g, "")}`)
             if (isNaN(bid)) {
                 alert('bid must be a number (no extra characters)')
                 return
@@ -65,9 +65,9 @@ export default {
     async created() {
         try {
             this.isLoading = true
-            const { data } = await axios.get(`http://localhost:3000/api/v1/artworks/${this.$route.params.name}`)
+            const { data } = await axios.get(`https://artists-ecommerce.herokuapp.com/api/v1/artworks/${this.$route.params.name}`)
             this.artwork = data.artwork
-            this.image_url = `http://localhost:3000/images/${this.artwork.image}`
+            this.image_url = `https://artists-ecommerce.herokuapp.com/images/${this.artwork.image}`
             this.artist_url =  `/artist/${this.artwork.artist}`
             this.name = this.artwork.name.replace(/-/g, " ")
             this.artist_name = this.artwork.artist.replace(/-/g, " ")

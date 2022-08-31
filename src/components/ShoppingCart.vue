@@ -28,12 +28,12 @@ export default {
         },
         
         checkout() {
-            alert('use (4242 4242 4242 4242, 04/24, 424) for credit card info')
+            alert('use (4242 4242 4242 4242, 04/24, 424) for credit card info, this is a demo')
             let itemsArray = []
             for (let i = 0; i < this.$store.state.shoppingCart.length; i++) {
                 itemsArray.push({ id: this.$store.state.shoppingCart[i].item_id, quantity: 1 })
             }
-            fetch("http://localhost:3000/create-checkout-session", {
+            fetch("https://artists-ecommerce.herokuapp.com/create-checkout-session", {
                 method: "POST",
                 headers: {
                 "Content-Type": "application/json",

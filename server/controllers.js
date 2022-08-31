@@ -37,7 +37,6 @@ const auth = async (req, res) => {
 const getAllArtists = async (req, res) => {
     try {
         const artists = await Artist.find({})
-        res.header("Access-Control-Allow-Origin", "http://localhost:8080");
         res.status(200).json({ artists })
     } catch (err) {
         console.log(err)
@@ -48,7 +47,6 @@ const getArtist = async (req, res) => {
     const {name: name} = req.params
     try {
         const artist = await Artist.findOne({ name: name })
-        res.header("Access-Control-Allow-Origin", "http://localhost:8080");
         res.status(200).json({artist})
     } catch (err) {
         console.log(err)
@@ -58,7 +56,6 @@ const getArtist = async (req, res) => {
 const getAllArtworks = async (req, res) => {
     try {
         const artworks = await Artwork.find({})
-        res.header("Access-Control-Allow-Origin", "http://localhost:8080");
         res.status(200).json({ artworks })
     } catch (err) {
         console.log(err)
@@ -69,7 +66,6 @@ const getArtwork = async (req, res) => {
     const {name: name} = req.params
     try {
         const artwork = await Artwork.findOne({ name: name })
-        res.header("Access-Control-Allow-Origin", "http://localhost:8080");
         res.status(200).json({ artwork })
     } catch (err) {
         console.log(err)
@@ -81,7 +77,6 @@ const getArtistAndArtworks = async (req, res) => {
     try {
         const artist = await Artist.findOne({ name: name })
         const artworks = await Artwork.find({artist: artist.name}) 
-        res.header("Access-Control-Allow-Origin", "http://localhost:8080");
         res.status(200).json({artist: artist, artworks: artworks})
         
     } catch (err) {

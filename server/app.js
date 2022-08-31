@@ -1,7 +1,6 @@
 require('dotenv').config();
 require('express-async-errors');
 const connectDB = require('./db')
-const cors = require('cors')
 const express = require('express');
 const app = express();
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
@@ -18,11 +17,6 @@ app.get('/', (req, res) => {
 
 app.use(express.json());
 
-app.use(
-  cors({
-    origin: "http://localhost:8080",
-  })
-)
 
 app.post("/create-checkout-session", async (req, res) => {
   try {
