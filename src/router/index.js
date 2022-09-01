@@ -2,6 +2,9 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ArtistView from '../views/ArtistView.vue'
 import ArtworkView from '../views/ArtworkView.vue'
+import SuccessView from '../views/SuccessView'
+import FailureView from '../views/FailureView'
+
 
 const routes = [
   {
