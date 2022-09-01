@@ -49,12 +49,9 @@ export default {
                 alert('bid must be a number (no extra characters)')
                 return
             }
-            console.log(bid)
             let number = parseInt(bid)
             let highestBid = parseInt(this.artwork.highestBid.replace(/,/g, ""))
-            console.log(number <= highestBid)
             if (number <= highestBid) {
-                console.log(number)
                 alert('bid must be higher than current highest bid')
                 return
             }
