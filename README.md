@@ -26,6 +26,7 @@ npm run build
 
 this will bundle the vue app into a /dist folder, which the express server will send to the browser. 
 
+note - "npm start" will start the server with nodemon, meaning you wont have to restart the server any time changes are made, you only need to re-build with "npm run build"
 
 # testing 
 
