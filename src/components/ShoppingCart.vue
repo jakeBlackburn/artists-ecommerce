@@ -1,5 +1,6 @@
 <template>
-    <div class="cart-container">
+    <div class="cart-container" :class="this.isExiting ? 'exiting' : 'entering' ">
+        <img src="../assets/remove-button.png" alt="exit" class="exit" @click="exit()">
         <div class="header">
             <h3 class="title">Shopping Cart</h3>
             <p>user: {{this.$store.state.user}}</p>
@@ -13,8 +14,6 @@
             <p class="price">$ {{item.price}}</p>
         </div>
         <button v-if="!(this.$store.state.shoppingCart.length === 0)" @click="checkout()">Proceed to Checkout</button>
-        
-        
     </div>
 </template>
 
@@ -22,9 +21,22 @@
 
 
 export default {
+    data() {
+        return {
+            isExiting: false
+        }
+    },
+
     methods: {
         remove(id) {
             this.$store.commit('removeFromCart', id)
+        },
+
+        exit() {
+            this.isExiting = true
+            setTimeout(() => {
+                this.$emit('exit')
+            }, 1000)
         },
         
         checkout() {
@@ -52,10 +64,9 @@ export default {
             .catch(e => {
             console.error(e.error)
             })
-            },
-
-            }
-        }
+        },
+    }
+}
 
 </script>
 
@@ -65,12 +76,27 @@ export default {
     position: fixed;
     top: 70px;
     right: 10px;
+    z-index: 1;
     width: 350px;
     background-color: aliceblue;
     border: 1px solid black;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+}
+
+.entering {
+    animation: drop-down 1s ease-in-out;
+}
+
+.exiting {
+    animation: dissapear 1s ease-in-out;
+}
+
+.exit {
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
 
 .empty {
@@ -129,11 +155,28 @@ button {
     font-family: Noto Sans;
 }
 
+@keyframes drop-down {
+    0%  {
+        top: -20%;
+    }
+    100% {
+        top: 70px;
+    }
+}
+
+@keyframes dissapear {
+    0%  {
+        top: 70px;
+    }
+    100% {
+        top: -20%;
+    }
+}
+
+
 @media screen and (max-width: 400px) {
     .cart-container {
         width: 93%;
     }
-
-    
 }
 </style>

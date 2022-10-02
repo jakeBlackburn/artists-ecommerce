@@ -1,12 +1,14 @@
 <template>
-<div class="header-container">
-    <router-link to="/">to home</router-link>
-    <div class="buttons">
-        <button @click="toggleCart()">Shopping Cart</button>
-        <button @click="logout()">Log Out</button>
-    </div>
+<div>
+    <div class="header-container">
+        <router-link to="/">to home</router-link>
+        <div class="buttons">
+            <button @click="openCart()">Shopping Cart</button>
+            <button @click="logout()">Log Out</button>
+        </div>
 
-    <ShoppingCart v-if="this.cartIsVisible" />
+    </div>
+    <ShoppingCart @exit="closeCart()" v-if="this.cartIsVisible" />
 </div>
 
 </template>
@@ -22,8 +24,11 @@ export default {
             this.$store.commit('setToken', '')
             this.$store.commit('logout')
         },
-        toggleCart() {
-            this.cartIsVisible = !this.cartIsVisible
+        openCart() {
+            this.cartIsVisible = true
+        },
+        closeCart() {
+            this.cartIsVisible = false
         }
     },
     components: {
@@ -51,7 +56,7 @@ export default {
     font-size: 1.2rem;
     position: fixed; 
     top: 0px;
-    z-index: 1;
+    z-index: 100;
 }
 
 a {
