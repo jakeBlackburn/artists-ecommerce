@@ -4,7 +4,6 @@
 <div>
     <h1>Purchase Successful</h1>
     <p>Thanks!</p>
-
 </div>
 
 
