@@ -157,7 +157,7 @@ button {
 
 @keyframes drop-down {
     0%  {
-        top: -20%;
+        top: -100%;
     }
     100% {
         top: 70px;
@@ -169,7 +169,7 @@ button {
         top: 70px;
     }
     100% {
-        top: -20%;
+        top: -100%;
     }
 }
 
