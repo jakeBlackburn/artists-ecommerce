@@ -128,4 +128,29 @@ input:focus {
 
 }
 
+@media screen and (max-width: 480px) {
+    h5 {
+        font-size: 1.8rem;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    .form {
+        height: 220px;
+        width: 300px;
+        padding: 20px 10px;
+    }
+
+    input {
+        padding: 5px;
+    }
+
+    .btn {
+        margin-top: 20px;
+        font-size: 1.1rem;
+    }
+}
+
 </style>
