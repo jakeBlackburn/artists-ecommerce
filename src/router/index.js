@@ -2,8 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ArtistView from '../views/ArtistView.vue'
 import ArtworkView from '../views/ArtworkView.vue'
-import SuccessView from '../views/SuccessView'
-import FailureView from '../views/FailureView'
 
 
 const routes = [
@@ -21,16 +19,6 @@ const routes = [
     path: '/artwork/:name',
     name: 'artwork',
     component: ArtworkView
-  },
-  {
-    path: '/success',
-    name: 'success',
-    component: SuccessView
-  },
-  {
-    path: '/failure',
-    name: 'failure',
-    component: FailureView
   }
 ]
 

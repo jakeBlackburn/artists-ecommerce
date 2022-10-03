@@ -4,7 +4,6 @@ const { Artist, Artwork } = require('./models.js')
 
 
 const login = async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
     const {username, password} = req.body
     if (!username || !password) {
         throw new BadRequest('please provide email & password')
@@ -15,7 +14,6 @@ const login = async (req, res) => {
 }
 
 const auth = async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
     const authHeader = req.headers.authorization
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
         throw new UnauthenticatedError('No Token Provided')
