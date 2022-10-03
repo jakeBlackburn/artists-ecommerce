@@ -17,6 +17,14 @@ app.get('/', (req, res) => {
   res.sendFile('../dist/index.html')
 })
 
+app.get('/success', (req, res) => {
+  res.sendFile('../dist/success.html')
+})
+
+app.get('/failure', (req, res) => {
+  res.sendFile('../dist/failure.html')
+})
+
 app.use(express.json());
 
 
