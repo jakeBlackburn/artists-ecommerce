@@ -3,13 +3,20 @@ require('express-async-errors');
 const connectDB = require('./db')
 const express = require('express');
 const app = express();
+const mainRouter = require('./router');
+
+const cors = require('cors')
+
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 const storeItems = require('./data/storeItems.js')
-const mainRouter = require('./router');
+
 const { errorHandlerMiddleware, notFound } = require('./middleware');
 
 // middleware
 app.use(express.static('./dist'));
+app.use(cors({
+  origin: ['https://jake-blackburn-portfolio.herokuapp.com', 'http://localhost:8000']
+}));
 
 app.get('/', (req, res) => {
   res.sendFile('../dist/index.html')
