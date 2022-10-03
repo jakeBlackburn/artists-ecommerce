@@ -39,8 +39,8 @@ app.post("/create-checkout-session", async (req, res) => {
           quantity: item.quantity,
         }
       }),
-      success_url: `https://artists-ecommerce.herokuapp.com/`,
-      cancel_url: `https://artists-ecommerce.herokuapp.com/`,
+      success_url: `https://artists-ecommerce.herokuapp.com/success`,
+      cancel_url: `https://artists-ecommerce.herokuapp.com/failure`,
     })
     res.json({ url: session.url })
   } catch (e) {
