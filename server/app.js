@@ -15,7 +15,7 @@ const { errorHandlerMiddleware, notFound } = require('./middleware');
 // middleware
 app.use(express.static('./dist'));
 app.use(cors({
-  origin: ['https://jake-blackburn-portfolio.herokuapp.com', 'http://localhost:8000']
+  origin: ['https://jake-blackburn-portfolio.herokuapp.com', 'http://localhost:8080']
 }));
 
 app.get('/', (req, res) => {
