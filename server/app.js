@@ -4,25 +4,29 @@ const connectDB = require('./db')
 const express = require('express');
 const app = express();
 const mainRouter = require('./router');
+const path = require('path')
 
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 const storeItems = require('./data/storeItems.js')
 
 const { errorHandlerMiddleware, notFound } = require('./middleware');
 
+dist = path.join(__dirname, '..' ,'/dist')
+
 // middleware
-app.use(express.static('./dist'));
+app.use(express.static(dist));
+
 
 app.get('/', (req, res) => {
-  res.sendFile('../dist/index.html')
+  res.sendFile(path.join(dist, 'index.html'))
 })
 
 app.get('/success', (req, res) => {
-  res.sendFile('../dist/success.html')
+  res.sendFile(path.join(dist, 'success.html'))
 })
 
 app.get('/failure', (req, res) => {
-  res.sendFile('../dist/failure.html')
+  res.sendFile(path.join(dist, 'failure.html'))
 })
 
 app.use(express.json());
