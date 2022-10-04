@@ -21,10 +21,10 @@ const artworkSchema = new mongoose.Schema({
     required: [true, 'must specify auction style']
   },
   price: {
-    type: String,
+    type: Number,
   },
   highestBid: {
-    type: String,
+    type: Number,
   },
   createdAt: {
     type: Date,

@@ -51,7 +51,7 @@ export default {
                 return
             }
             bid = parseInt(bid)
-            let highestBid = parseInt(this.artwork.highestBid.replace(/,/g, ""))
+            let highestBid = this.artwork.highestBid
             if (bid <= highestBid) {
                 alert('bid must be higher than current highest bid')
                 return
