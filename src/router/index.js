@@ -19,6 +19,11 @@ const routes = [
     path: '/artwork/:name',
     name: 'artwork',
     component: ArtworkView
+  },
+  {
+    path: '/checkout',
+    name: 'checkout',
+    component: CheckoutView
   }
 ]
 
