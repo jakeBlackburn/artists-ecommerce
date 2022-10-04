@@ -72,6 +72,22 @@ const getArtwork = async (req, res) => {
     }
 }
 
+const updateArtworkAuction = async (req, res) => {
+    const {name: name} = req.params
+    try {
+        const artwork = await Artwork.findOneAndUpdate({ name: name }, req.body, {
+            new: true,
+            runValidators: true,
+        })
+        if (!artwork) {
+            return next(createCustomError(`No task with name : ${name}`, 404))
+        }
+        res.status(200).json({ artwork })
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 const getArtistAndArtworks = async (req, res) => {
     const {name: name} = req.params
     try {
@@ -92,5 +108,6 @@ module.exports = {
     getArtist,
     getAllArtworks,
     getArtwork,
+    updateArtworkAuction,
     getArtistAndArtworks
 }

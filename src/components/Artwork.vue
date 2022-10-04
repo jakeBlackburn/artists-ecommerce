@@ -43,19 +43,32 @@ export default {
             this.$store.commit('addToCart', this.artwork)
             alert(`${this.name} added to cart!`)
         },
+
         bid() {
             let bid = prompt('Enter your bid:', `${this.artwork.highestBid.replace(/,/g, "")}`)
             if (isNaN(bid)) {
                 alert('bid must be a number (no extra characters)')
                 return
             }
-            let number = parseInt(bid)
+            bid = parseInt(bid)
             let highestBid = parseInt(this.artwork.highestBid.replace(/,/g, ""))
-            if (number <= highestBid) {
+            if (bid <= highestBid) {
                 alert('bid must be higher than current highest bid')
                 return
             }
-            alert('bid successful! (this is a mockup, the highest bid will not change)')
+            this.updateBid(bid)
+            alert('bid successful!')
+        },
+
+        async updateBid(bid) {
+            const newArtwork = this.artwork
+            newArtwork.highestBid = bid
+            try {
+                const res = await axios.patch(`https://artists-ecommerce.herokuapp.com/artworks/${this.$route.params.name}`, newArtwork)
+                console.log(res)
+            } catch (err) {
+                console.log(err)
+            }
         }
     },
 
