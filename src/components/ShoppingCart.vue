@@ -13,7 +13,7 @@
             </div>
             <p class="price">$ {{item.price}}</p>
         </div>
-        <button v-if="!(this.$store.state.shoppingCart.length === 0)" @click="checkout()">Proceed to Checkout</button>
+        <button v-if="!(this.$store.state.shoppingCart.length === 0)" @click="this.$router.push('/checkout')">Proceed to Checkout</button>
     </div>
 </template>
 
@@ -37,33 +37,6 @@ export default {
             setTimeout(() => {
                 this.$emit('exit')
             }, 1000)
-        },
-        
-        checkout() {
-            alert('use (4242 4242 4242 4242, 04/24, 424) for credit card info, this is a demo')
-            let itemsArray = []
-            for (let i = 0; i < this.$store.state.shoppingCart.length; i++) {
-                itemsArray.push({ id: this.$store.state.shoppingCart[i].item_id, quantity: 1 })
-            }
-            fetch("https://artists-ecommerce.herokuapp.com/create-checkout-session", {
-                method: "POST",
-                headers: {
-                "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                items: itemsArray,
-                }),
-            })
-            .then(res => {
-            if (res.ok) return res.json()
-            return res.json().then(json => Promise.reject(json))
-            })
-            .then(({ url }) => {
-            window.location = url
-            })
-            .catch(e => {
-            console.error(e.error)
-            })
         },
     }
 }
