@@ -64,7 +64,7 @@ export default {
             const newArtwork = this.artwork
             newArtwork.highestBid = bid
             try {
-                const res = await axios.patch(`https://artists-ecommerce.herokuapp.com/artworks/${this.$route.params.name}`, newArtwork)
+                const res = await axios.patch(`https://artists-ecommerce.herokuapp.com/api/vi/artworks/${this.$route.params.name}`, newArtwork)
                 console.log(res)
             } catch (err) {
                 console.log(err)
