@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ArtistView from '../views/ArtistView.vue'
 import ArtworkView from '../views/ArtworkView.vue'
+import CheckoutView from '../views/CheckoutView.vue'
 
 
 const routes = [
