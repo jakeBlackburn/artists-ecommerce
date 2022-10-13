@@ -3,7 +3,7 @@
     <div class="header-container">
         <router-link to="/">to home</router-link>
         <div class="buttons">
-            <button @click="openCart()">Shopping Cart</button>
+            <button @click="openCart()" v-if="this.$route.name != 'checkout'">Shopping Cart</button>
             <button @click="logout()">Log Out</button>
         </div>
 
