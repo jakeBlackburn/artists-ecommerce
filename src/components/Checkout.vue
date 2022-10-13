@@ -145,4 +145,42 @@ h1.card-info {
     color: deeppink;
 }
 
+
+@media screen and (max-width: 750px) {
+h1.card-info {
+    font-size: 1.3rem;
+}
+
+.checkout-container {
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.items {
+    width: 75%;
+    margin-bottom: 50px;
+}
+
+}
+
+@media screen and (max-width: 500px) {
+.card-info {
+    font-size: 0.75rem;
+}
+
+h1.card-info {
+    font-size: 1rem;
+}
+
+.items {
+    width: 100%;
+}
+
+
+}
+
+
 </style>

@@ -263,4 +263,29 @@ export default {
     background-color: lavender;
 }
 
+
+@media screen and (max-width: 950px) {
+.selector, .input {
+  display: block;
+  width: 100%;
+}
+}
+
+@media screen and (max-width: 750px) {
+  .address-form {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .submit-button {
+  width: 30%;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: rgb(250, 226, 229);
+  font-size: 1rem;
+}
+}
+
 </style>
