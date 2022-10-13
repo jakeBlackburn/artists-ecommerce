@@ -45,14 +45,13 @@ export default {
         },
 
         bid() {
-            let bid = prompt('Enter your bid:', `${this.artwork.highestBid.replace(/,/g, "")}`)
+            let bid = prompt('Enter your bid:', `${this.artwork.highestBid}`)
             if (isNaN(bid)) {
                 alert('bid must be a number (no extra characters)')
                 return
             }
             bid = parseInt(bid)
-            let highestBid = this.artwork.highestBid
-            if (bid <= highestBid) {
+            if (bid <= this.artwork.highestBid) {
                 alert('bid must be higher than current highest bid')
                 return
             }
