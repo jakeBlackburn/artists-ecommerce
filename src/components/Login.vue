@@ -1,17 +1,17 @@
 <template>
     <div class="login-container">
-        <form class="form contact-form" @submit.prevent="handleSubmit()">
+        <form class="form" @submit.prevent="handleSubmit()">
             <h5>login</h5>
             <div class="form-row">
             <label for="username" class="form-label">username</label>
-            <input type="text" class="form-input username-input" v-model="username" />
+            <input type="text" class="form-input" v-model="username" />
             </div>
             <div class="form-row">
             <label for="password" class="form-label">password</label>
-            <input type="password" class="form-input password-input" v-model="password" />
+            <input type="password" class="form-input" v-model="password" />
             </div>
-            <div class="form-alert" v-if="err.msg">{{err.msg}}</div>
-            <button class="btn btn-block">submit</button>
+            <div class="alert" v-if="err.msg">{{err.response.data.msg}}</div>
+            <button class="btn">submit</button>
         </form>
     </div>
 </template>
@@ -45,7 +45,6 @@ export default {
                 this.$store.commit('setUser', user.data.user)
                 this.$store.commit('login')
             } catch (err) {
-                console.log(err)
                 this.username = ''
                 this.password = ''
                 this.err = err
