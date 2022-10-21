@@ -3,12 +3,12 @@
         <form class="form" @submit.prevent="handleSubmit()">
             <h5>login</h5>
             <div class="form-row">
-            <label for="username" class="form-label">username</label>
-            <input type="text" class="form-input" v-model="username" />
+            <label for="username" class="label">username</label>
+            <input type="text" class="input" v-model="username" />
             </div>
             <div class="form-row">
-            <label for="password" class="form-label">password</label>
-            <input type="password" class="form-input" v-model="password" />
+            <label for="password" class="label">password</label>
+            <input type="password" class="input" v-model="password" />
             </div>
             <div class="alert" v-if="err.msg">{{err.response.data.msg}}</div>
             <button class="btn">submit</button>

@@ -1,5 +1,5 @@
 <template>
-    <!-- <Login v-if="!this.$store.state.isLoggedIn" />  -->
+    <Login v-if="!this.$store.state.isLoggedIn" /> 
     <router-view  /> 
 </template>
 
@@ -26,7 +26,6 @@ export default {
         this.$store.commit('setToken', token)
         this.$store.commit('login')
       } catch (err) {
-        console.log(err)
         localStorage.removeItem('token')
       }
       
