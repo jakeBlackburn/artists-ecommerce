@@ -2,32 +2,35 @@ const { BadRequest, UnauthenticatedError } = require('./errors')
 const jwt = require('jsonwebtoken')
 const { Artist, Artwork } = require('./models.js')
 
+const validate = require('./validate.js')
+
+
 
 const login = async (req, res) => {
     const {username, password} = req.body
     if (!username || !password) {
         throw new BadRequest('please provide email & password')
     }
-    const id = new Date().getDate()
-    const token = jwt.sign({id, username}, process.env.JWT_SECRET, {expiresIn: '30d'})
+    const token = jwt.sign({password, username}, process.env.JWT_SECRET, {expiresIn: '30d'})
     res.status(200).json({msg: 'user created', token})
 }
 
-const auth = async (req, res) => {
+const auth = async (req, res, next) => {
     const authHeader = req.headers.authorization
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        throw new UnauthenticatedError('No Token Provided')
+        throw new UnauthenticatedError('Token Data Invalid')
     }
     const token = authHeader.split(' ')[1]
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
-        const {id, username} = decoded
-        req.user = {id, username}
-        res.status(200).json({user: req.user.username})
+        const {password, username} = decoded
 
+        const user = await validate(username, password, next)
+
+        res.status(200).json({user: user})
     } catch (error) {
-        throw new UnauthenticatedError('token unauthorized')
+        next(error) 
     }
 
   

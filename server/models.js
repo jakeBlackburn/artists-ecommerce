@@ -55,7 +55,19 @@ const artistSchema = new mongoose.Schema({
 
 })
 
+const userSchema = new mongoose.Schema({
+  username: {
+      type: String,
+      required: [true, 'must provide username']
+  },
+  password: {
+    type: String,
+  }
+})
+
+
 module.exports = {
     Artwork: mongoose.model('Artwork', artworkSchema),
+    User: mongoose.model('User', userSchema),
     Artist: mongoose.model('Artist', artistSchema)
 }

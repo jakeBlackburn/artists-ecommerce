@@ -63,8 +63,8 @@ app.post("/create-checkout-session", async (req, res) => {
 
 app.use('/api/v1', mainRouter);
 
-app.use(notFound);
 app.use(errorHandlerMiddleware);
+app.use(notFound);
 
 const port = process.env.PORT || 3000;
 const username = process.env.ATLAS_USERNAME
